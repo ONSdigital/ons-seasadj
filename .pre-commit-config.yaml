@@ -51,7 +51,7 @@ repos:
         name: Check commits for restricted file extensions
         entry: These file extensions are restricted. Data should be removed from the commit
         language: fail
-        files: .*\.(csv|feather|xlsx|zip|hdf5|h5|txt|json|xml|hd|parquet)repos:
+        files: .*\.(csv|feather|xlsx|zip|hdf5|h5|txt|json|xml|hd|parquet)
 
   - repo: https://github.com/Yelp/detect-secrets
     rev: v1.5.0
