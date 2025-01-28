@@ -1,0 +1,1 @@
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"rdsa-utils","text":"<p>This site contains the project documentation for <code>ons-seasadj</code>, a seasonal adjustment package built in Python, compatible with Cloudera Data Platform (CDP), developed by the Support and Innovation Lab in RDSA.</p>"}]}
