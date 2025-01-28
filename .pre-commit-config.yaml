@@ -18,6 +18,8 @@ repos:
       - id: check-yaml
       - id: check-toml
       - id: debug-statements
+      - id: no-commit-to-branch
+        args: ['--pattern', '^SAIL_[0-9]+$']
   
   - repo: https://github.com/psf/black
     rev: 24.4.2
@@ -34,6 +36,8 @@ repos:
     rev: v0.3.2
     hooks:
       - id: ruff
+        args: ["--config", ".ruff.toml", "--fix"]
+      - id: ruff-format
         args: ["--config", ".ruff.toml"]
 
   - repo: https://github.com/gitleaks/gitleaks
@@ -47,4 +51,10 @@ repos:
         name: Check commits for restricted file extensions
         entry: These file extensions are restricted. Data should be removed from the commit
         language: fail
-        files: .*\.(csv|feather|xlsx|zip|hdf5|h5|txt|json|xml|hd|parquet)
+        files: .*\.(csv|feather|xlsx|zip|hdf5|h5|txt|json|xml|hd|parquet)repos:
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
