@@ -1,0 +1,1 @@
+This site contains the project documentation for `ons-seasadj`, a seasonal adjustment package built in Python, compatible with Cloudera Data Platform (CDP), developed by the Support and Innovation Lab in RDSA.

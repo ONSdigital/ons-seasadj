@@ -1,0 +1,57 @@
+site_name: rdsa-utils Documentation
+
+theme:
+  name: ons_mkdocs_theme
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - toc.integrate
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: en
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.ico
+
+repo_name: rdsa-utils
+repo_url: https://github.com/ONSdigital/rdsa-utils
+
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            # All options can be found at: https://mkdocstrings.github.io/python/usage/#globallocal-options
+            docstring_style: numpy
+            show_signature_annotations: True
+            show_source: False
+            show_root_heading: True
+            merge_init_into_class: True
+  - material/search
+  - git-revision-date-localized
+  - mkdocs-jupyter:
+      include_source: True
+      include: ["*.ipynb"] # Default: ["*.py", "*.ipynb"]
+      ignore: ["*.py"]
+      remove_tag_config:
+        remove_input_tags:
+          - hide_code
+        remove_all_outputs_tags:
+          - hide_out
+  - mermaid2
+
+nav:
+  - rdsa-utils: index.md
+  - API Reference: reference.md
+  - Contribution Guide: contribution_guide.md
+  - Branching & Deployment Guide: branch_and_deploy_guide.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: <insert repo link>
+
+# Do not remove the copy right section. But you can change the copyright information.
+copyright: |
+  &copy;  <a href="https://www.ons.gov.uk">Office for National Statistics 2024</a>
