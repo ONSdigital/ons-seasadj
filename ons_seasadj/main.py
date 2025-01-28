@@ -181,7 +181,7 @@ def _make_regression_options(trading, exog):
         var_names = _make_var_names(exog)
         reg_spec += f"    user = ({var_names})\n"
         reg_spec += "    data = ({})\n".format(
-            "\n".join(map(str, exog.to_numpy.ravel().tolist()))
+            "\n".join(map(str, exog.to_numpy.ravel().tolist())),
         )
 
     reg_spec += "}\n"  # close out regression spec
@@ -361,7 +361,11 @@ def pandas_to_series_spec(x):
     else:
         name = "Unnamed Series"
     series_spec = SeriesSpec(
-        data=data, name=name, period=period, title=name, start=f"{year}.{stperiod}"
+        data=data,
+        name=name,
+        period=period,
+        title=name,
+        start=f"{year}.{stperiod}",
     )
     return series_spec
 
@@ -531,7 +535,9 @@ def x13_arima_analysis(
         except OSError:
             if Path.exists(ftempin.name):
                 warn(
-                    f"Failed to delete resource {ftempin.name}", IOWarning, stacklevel=2
+                    f"Failed to delete resource {ftempin.name}",
+                    IOWarning,
+                    stacklevel=2,
                 )
             if Path.exists(ftempout.name):
                 warn(
