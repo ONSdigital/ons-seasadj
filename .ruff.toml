@@ -1,6 +1,47 @@
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "ons_seasadj/x13binary/*",
+    "docs/*",
+    "tests/*"
+]
+
+# Same as Black.
 line-length = 88
+indent-width = 4
+
+# Assume Python 3.10
+target-version = "py310"
 
 [lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`) codes by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
 select = [
     "A",
     "B",
@@ -22,16 +63,47 @@ select = [
     "T20",
     "W",
     "YTT",
+    "E4",
+    "E7",
+    "E9"
 ]
-ignore = ["N812", "PD901", "E712", "E721"]
+ignore = ["N812", "PD901", "E712", "E721", "COM812"]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [lint.pydocstyle]
 convention = "numpy"
-
-[lint.flake8-quotes]
-inline-quotes = "double"
 
 [lint.per-file-ignores]
 "*/__init__.py" = ["D104"]
 "*/" = ["B006", "PTH123", "B008"]
 "tests/*" = ["ANN", "D100", "E501", "F403", "F405", "PT011", "B017", "D205"]
+
+[lint.flake8-quotes]
+inline-quotes = "double"
+
+[format]
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = true
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = 88
