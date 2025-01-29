@@ -9,6 +9,7 @@ and this project adheres to [semantic versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Enhanced pre-commit hooks to look for secrets and run ruff formatter
 - Added x13binaries and base x13 code
 
 ### Changed
