@@ -1,5 +1,9 @@
 line-length = 88
 
+exclude = [
+    "ons_seasadj/x13binary/*"
+]
+
 [lint]
 select = [
     "A",
